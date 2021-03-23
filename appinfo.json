@@ -3,45 +3,44 @@
   "capabilities": [
     "configurable"
   ],
-  "companyName": "Meiguro",
-  "longName": "Pebble.js",
+  "companyName": "triveri@outlook.com",
+  "longName": "Discord",
   "resources": {
     "media": [
       {
-        "file": "images/menu_icon.png",
-        "menuIcon": true,
-        "name": "IMAGE_MENU_ICON",
-        "type": "bitmap"
-      },
-      {
         "file": "images/logo_splash.png",
         "name": "IMAGE_LOGO_SPLASH",
-        "type": "bitmap"
+        "type": "png"
       },
       {
         "file": "images/tile_splash.png",
         "name": "IMAGE_TILE_SPLASH",
-        "type": "bitmap"
+        "type": "png"
       },
       {
         "file": "fonts/UbuntuMono-Regular.ttf",
         "name": "MONO_FONT_14",
         "type": "font"
+      },
+      {
+        "file": "images/Discord.png",
+        "menuIcon": true,
+        "name": "IMAGES_DISCORD_PNG",
+        "type": "png"
       }
     ]
   },
   "sdkVersion": "3",
-  "shortName": "Pebble.js",
+  "shortName": "Send DM",
   "targetPlatforms": [
-    "aplite",
     "basalt",
     "chalk",
     "diorite",
     "emery"
   ],
-  "uuid": "133215f0-cf20-4c05-997b-3c9be5a64e5b",
+  "uuid": "19a7512c-1ba8-4576-9d44-69b797bca74d",
   "versionCode": 1,
-  "versionLabel": "0.4",
+  "versionLabel": "1.0",
   "watchapp": {
     "watchface": false
   }
