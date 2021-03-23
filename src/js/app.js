@@ -25,20 +25,20 @@ var errorCard = new UI.Card({
 
 var loadingCard = new UI.Card({
 	fullscreen: false,
-	title: 'Gettings contacts...',
+	title: 'Getting DMs...',
 	titleColor: 'black',
 });
 
 var sendingMessageCard = new UI.Card({
 	fullscreen: false,
-	title: 'Sending...',
+	title: 'Sending message...',
 	titleColor: 'black',
 	backgroundColor: '#aaaaaa',
 });
 
 var sentMessageCard = new UI.Card({
 	fullscreen: false,
-	title: 'Message sent :)',
+	title: 'Sent!',
 	titleColor: 'black',
 	backgroundColor: '#aaaaaa',
 });
@@ -82,6 +82,8 @@ var populateContactsMenu = function(arrayContacts){
 var getContacts = function(arrayContacts, token){
 	console.log('getting contacts');
 
+	loadingCard.show();
+
 	var ajaxURL = 'https://discord.com/api/users/@me/channels';
 	var ajaxHeaders = { 'Authorization' : Settings.option('token')};
 	var ajaxParams = { url: ajaxURL, type: 'json', method: 'get', headers: ajaxHeaders };
@@ -109,8 +111,6 @@ var getContacts = function(arrayContacts, token){
 			return sB - sA;
 		});
 
-		Settings.data('contacts', contacts);
-
 		populateContactsMenu(contacts);
 		contactsMenu.show();
 	}, function(data){
@@ -129,24 +129,15 @@ Pebble.addEventListener('webviewclosed', function(e) {
 	var dict = clay.getSettings(e.response);
 	Settings.option(dict);
 	Settings.option('token', Settings.option('token').replace(/['"]+/g, ''));
+	token = Settings.option('token');
 	console.log('set settings');
 
-	getContacts(contacts, Settings.option('token'));
-	loadingCard.show();
+	getContacts(contacts, token);
 });
 
-contacts = Settings.data('contacts');
 token = Settings.option('token');
 
-if(token && contacts && contacts.length){
-	populateContactsMenu(contacts);
-	contactsMenu.show();
-	configPromptCard.hide();
-	errorCard.hide();
-	loadingCard.hide();
-}else{
-	configPromptCard.show();
-}
+getContacts(contacts, token);
 
 contactsMenu.on('select', function(selection){
 	var selectedContact = contacts[selection.itemIndex];
