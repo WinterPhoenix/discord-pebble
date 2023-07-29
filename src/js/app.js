@@ -56,7 +56,7 @@ Pebble.addEventListener('showConfiguration', function(e) {
 	console.log('showed settings');
 });
 
-var populateContactsMenu = function(arrayContacts){
+function populateContactsMenu(arrayContacts){
 	for(var i = 0; i < arrayContacts.length; i++){
 		var contact = arrayContacts[i];
 
@@ -74,12 +74,13 @@ var populateContactsMenu = function(arrayContacts){
 			}
 		}
 
-		if(contacts[i])
-		contactsMenu.item(0, i, { title: name });
+		if(contacts[i]) {
+			contactsMenu.item(0, i, { title: name });
+		}
 	}
 };
 
-var getContacts = function(arrayContacts, token){
+function getContacts(arrayContacts, token){
 	console.log('getting contacts');
 
 	loadingCard.show();
@@ -190,11 +191,9 @@ sentMessageCard.on('show', function(){
 	contactsMenu.hide();
 	sendingMessageCard.hide();
 
-	setTimeout(() => {
-
+	setTimeout(function() {
 		sentMessageCard.hide();
-
-		}, 1000);
+	}, 1000);
 });
 
 // var ws = new WebSocket("wss://gateway.discord.gg/?encoding=json&v=7");

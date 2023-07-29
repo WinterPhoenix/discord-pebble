@@ -3,8 +3,8 @@
   "capabilities": [
     "configurable"
   ],
-  "companyName": "triveri@outlook.com",
-  "longName": "Discord",
+  "companyName": "Trevir",
+  "longName": "Send Discord Message",
   "resources": {
     "media": [
       {
@@ -31,16 +31,16 @@
     ]
   },
   "sdkVersion": "3",
-  "shortName": "Send DM",
+  "shortName": "Send Discord Message",
   "targetPlatforms": [
     "basalt",
     "chalk",
     "diorite",
     "emery"
   ],
-  "uuid": "19a7512c-1ba8-4576-9d44-69b797bca74d",
-  "versionCode": 1,
-  "versionLabel": "1.0",
+  "uuid": "b4e7b1ea-b6cc-46c6-aa99-6b93de965aab",
+  "versionCode": 1.1,
+  "versionLabel": "1.1",
   "watchapp": {
     "watchface": false
   }
